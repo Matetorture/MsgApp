@@ -15,8 +15,8 @@ app.use("/api/user", userRoute);
 
 app.use("/api/message", messageRoute);
 
-
-mongoose.connect("mongodb://localhost:27017/LiveMessenger")
+const {connectionString} = require("./config");
+mongoose.connect(connectionString)
 .then(() => {
     console.log("Connected to database!");
     app.listen(3000, () => {
