@@ -49,14 +49,7 @@ const getUser = async (req, res) => {
         const userFromToken = jwt.verify(apiKey, jwtSecret);
 
         const user = await User.findById(userFromToken.userId);
-
-        const selectDataUser = {
-            login: user.login,
-            email: user.email,
-            name: user.name,
-            createdAt: user.createdAt
-        };
-        res.status(200).json(selectDataUser);
+        res.status(200).json(user);
     } catch(err){
         res.status(500).json({message: err.message});
     }
