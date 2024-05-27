@@ -5,7 +5,7 @@ const { createUser, getUsers, getUser, updateUser, getContacts, updateContacts, 
 
 router.post('/createUser', createUser);
 
-router.post('/getUsers', getUsers);
+router.get('/getUsers', getUsers);
 
 router.get('/getUser/:apiKey', getUser);
 
