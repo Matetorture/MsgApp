@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const Message = require('./models/message.model');
 
@@ -8,6 +9,9 @@ const userRoute = require('./routes/user.route');
 
 
 const app = express();
+app.use(cors());
+
+
 app.use(express.json());
 
 //routes
