@@ -53,8 +53,7 @@ const getUser = async (req, res) => {
         const selectDataUser = {
             login: user.login,
             email: user.email,
-            name: user.name,
-            createdAt: user.createdAt
+            name: user.name
         };
         res.status(200).json(selectDataUser);
     } catch(err){
