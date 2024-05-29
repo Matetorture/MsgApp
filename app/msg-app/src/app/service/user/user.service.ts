@@ -15,14 +15,11 @@ export class UserService {
   createUser(){
     // return this.http.post(`${apiUrl}/createUser`);
   }
-  getUsers(){
-    return this.http.get(`${apiUrl}/getUsers`);
-  }
   getUser(userId: string){
     return this.http.get(`${apiUrl}/getUser/${userId}`);
   }
-  updateUser(){
-    // return this.http.put(`${apiUrl}/updateUser`);
+  updateUser(userId: string, user: object){
+    return this.http.put(`${apiUrl}/updateUser/${userId}`, user);
   }
 
   getContacts(){

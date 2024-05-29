@@ -1,13 +1,15 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { UserService } from '../service/user/user.service';
 import { CookieService } from '../service/cookie/cookie.service';
 
 @Component({
   selector: 'app-user',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './user.component.html',
   styleUrl: './user.component.css'
 })
@@ -19,7 +21,13 @@ export class UserComponent {
 
   userId: any = this.cookieService.get("userId") === "" ? this.router.navigate(['login']) : this.cookieService.get("userId");
 
-  user: any = {};
+  user: any = {
+    login: "",
+    password: "",
+    email: "",
+    name: "",
+    createdAt: ""
+  };
   
   ngOnInit(): void {
     this.user = this.getUser();
@@ -30,6 +38,19 @@ export class UserComponent {
       next: (res: any) => {
         this.user = res;
         console.log(this.user);
+      },
+      error:(error) => console.log("Error fech data: "+error)
+    });
+  }
+
+  updateUser(){
+    if(this.user.password == ""){
+      this.user.password = undefined;
+    }
+
+    this.userService.updateUser(this.userId, this.user).subscribe({
+      next: (res: any) => {
+        console.log(res);
       },
       error:(error) => console.log("Error fech data: "+error)
     });

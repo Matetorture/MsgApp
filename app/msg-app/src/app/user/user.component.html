@@ -1,3 +1,8 @@
 <div *ngIf="user">
+    <input type="text" [(ngModel)]="user.login" name="login" id="login">
+    <input type="text" [(ngModel)]="user.password" name="password" id="password">
+    <input type="text" [(ngModel)]="user.email" name="email" id="email">
+    <input type="text" [(ngModel)]="user.name" name="name" id="name">
+    <button (click)="updateUser()">update</button>
     <p>{{user.login}}, {{user.email}}, {{user.name}}, {{user.createdAt}}</p>
 </div>
