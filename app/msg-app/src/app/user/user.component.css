@@ -30,4 +30,5 @@ button{
     border-radius: 20px;
     display: block;
     margin: 50px auto;
+    cursor: pointer;
 }
