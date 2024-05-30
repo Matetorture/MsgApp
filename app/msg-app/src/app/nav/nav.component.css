@@ -1,0 +1,17 @@
+#nav{
+    font-size: 60px;
+    background: linear-gradient(90deg, var(--pink) 0%, var(--tertiary) 100%);
+    color: var(--secondary);
+    padding: 20px;
+}
+.link{
+    font-size: 45px;
+    padding: 0 40px;
+}
+.icon{
+    font-size: 36px;
+}
+.link:hover{
+    color: white;
+    font-weight: bold;
+}
