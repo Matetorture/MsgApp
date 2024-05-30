@@ -100,7 +100,7 @@ const getContacts = async (req, res) => {
         if(user.contacts){
             const foundUsers = await User.find({ _id: { $in: user.contacts.slice(1) } });
 
-            const nameAndStatusUsers = foundUsers.map(obj => ({ name: obj.name, status: obj.status }));
+            const nameAndStatusUsers = foundUsers.map(obj => ({ id: obj._id, name: obj.name, status: obj.status }));
 
             res.status(200).json(nameAndStatusUsers);
         }else{
