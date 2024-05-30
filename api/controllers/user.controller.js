@@ -62,7 +62,7 @@ const getUser = async (req, res) => {
     }
 };
 
-const getUserOther = async (req, res) => {
+const getUserById = async (req, res) => {
     try{
         const { id } = req.params;
 
@@ -198,7 +198,7 @@ module.exports = {
     createUser, 
     getUsers, 
     getUser,
-    getUserOther,
+    getUserById,
     updateUser, 
     getContacts, 
     updateContacts,
