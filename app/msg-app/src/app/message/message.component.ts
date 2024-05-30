@@ -41,11 +41,22 @@ export class MessageComponent {
     this.getUserById();
   }
 
+  ngAfterViewInit() {
+    //TODO   
+    this.scrollToBottom();        
+  }
+  scrollToBottom(){
+    document.querySelector("#send-button")?.scrollIntoView();
+  }
+
   createChat(){
     this.messageService.createChat(this.userId, this.contacts).subscribe({
       next: (res: any) => {
         this.chatId = res;
         this.getMessages();
+        setInterval(() => {
+          this.getMessages();
+        }, 1000);
       },
       error:(error) => console.log("Error fech data: "+error)
     });
@@ -63,7 +74,8 @@ export class MessageComponent {
   createMessage(message: string){
     this.messageService.createMessage(this.userId, { message: message, chatId: this.chatId}).subscribe({
       next: (res: any) => {
-        console.log(res);
+        message = "";
+        this.getMessages();
       },
       error:(error) => console.log("Error fech data: "+error)
     });

@@ -1,5 +1,6 @@
 #nav{
     position: sticky;
+    z-index: 1;
     top: 0;
     font-size: 60px;
     background: linear-gradient(90deg, var(--pink) 0%, var(--tertiary) 100%);

@@ -1,11 +1,15 @@
-<div *ngIf="user != {}">
-    {{user.name}}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+<div id="user" *ngIf="user != {}">
+    {{user.name}}<span id="status">{{user.status}}</span>
 </div>
-<div *ngIf="messages != []">
-    <div *ngFor="let message of messages">
+<div id="messages" *ngIf="messages != []">
+    <div class="message {{ contact != message.creatorId ? 'your' : '' }}" *ngFor="let message of messages">
         {{message.message}}
-        <span *ngIf="contact != message.creatorId">You</span>
+        <span *ngIf="contact != message.creatorId" class="info">You</span>
     </div>
 </div>
-<input type="text" [(ngModel)]="message">
-<button (click) = "createMessage(message)">send</button>
+<input type="text" [(ngModel)]="message" placeholder="message" id="message-input">
+<button id="send-button" (click)="createMessage(message)">
+    <span class="material-symbols-outlined">send</span>
+</button>

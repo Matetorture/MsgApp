@@ -1,0 +1,58 @@
+#user{
+    font-size: 30px;
+    text-align: center;
+    padding: 15px 0 25px 0;
+    color: white;
+    position: relative;
+    position: sticky;
+    top: 110px;
+}
+#status{
+    position: absolute;
+    bottom: 0;
+    opacity: .6;
+    font-size: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#messages{
+    margin: 10px 50px;
+}
+.message{
+    display: block;
+    margin-top: 10px;
+    width: fit-content;
+    padding: 10px;
+    border-radius: 50px;
+    background-color: var(--secondary);
+    position: relative;
+}
+.your{
+    background-color: rgb(0, 180, 180);
+    color: white;
+}
+.info{
+    position: absolute;
+    right: -10px;
+    color: white;
+    opacity: .4;
+    transform: translateX(100%);
+}
+
+#message-input{
+    margin: 0 5% 20px 5%;
+    width: 80%;
+    font-size: 30px;
+    background-color: transparent;
+    outline: none;
+    color: white;
+    border: none;
+    border-bottom: 6px solid var(--primary);
+}
+#send-button{
+    color: white;
+    font-size: 100px;
+    background-color: transparent;
+    border: none;
+}
