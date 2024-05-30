@@ -1,5 +1,8 @@
 <div *ngIf="contacts != []">
-    <div *ngFor="let contact of contacts" (click) = "openContact(contact.id)">
-        {{contact.name}}
+    <div id="contacts" *ngFor="let contact of contacts" (click) = "openContact(contact.id)">
+        <span class="contact">
+            {{contact.name}} 
+            <span class="status">{{contact.status}}</span>
+        </span>
     </div>
 </div>
