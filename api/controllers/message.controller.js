@@ -26,7 +26,7 @@ const getMessages = async (req, res) => {
         const {apiKey} = req.params;
         const {chatId} = req.body;
         
-        const message = await Chat.findById(chatId);
+        const message = await Message.find({ chatId });
 
 
         res.status(200).json(message);
