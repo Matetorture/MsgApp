@@ -83,14 +83,13 @@ const createChat = async (req, res) => {
         const chat = await Chat.find({ users });
 
         if(chat.length != 0){
-            return res.status(400).json({ message: "Chat with this users already exists" });
+            return res.status(200).json(chat[0]._id);
         }
         const newChat = new Chat({ users });
 
         await newChat.save();
 
-        const message = await Message.find({});
-        res.status(200).json(newChat);
+        res.status(200).json(newChat._id);
     } catch(err){
         res.status(500).json({message: err.message});
     }
