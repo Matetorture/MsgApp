@@ -69,7 +69,7 @@ const getAllMessages = async (req, res) => {
 const createChat = async (req, res) => {
     try{
         const {apiKey} = req.params;
-        const participants = req.body;
+        const { participants } = req.body;
 
         if(participants.length == 0){
             return res.status(500).json({ message: "Participants are empty"});
