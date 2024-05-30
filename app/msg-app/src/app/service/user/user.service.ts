@@ -18,15 +18,18 @@ export class UserService {
   getUser(userId: string){
     return this.http.get(`${apiUrl}/getUser/${userId}`);
   }
+  getUserById(userId: string){
+    return this.http.get(`${apiUrl}/getUserById/${userId}`);
+  }
   updateUser(userId: string, user: object){
     return this.http.put(`${apiUrl}/updateUser/${userId}`, user);
   }
 
-  getContacts(){
-    return this.http.get(`${apiUrl}/getContacts`);
+  getContacts(userId: string){
+    return this.http.get(`${apiUrl}/getContacts/${userId}`);
   }
-  updateContacts(){
-    // return this.http.put(`${apiUrl}/updateContacts`);
+  updateContacts(userId: string, name: string){
+    return this.http.put(`${apiUrl}/updateContacts/${userId}`, {name: name});
   }
 
   loginUser(data: {login: string, password: string}){

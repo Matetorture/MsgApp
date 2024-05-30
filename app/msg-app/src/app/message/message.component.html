@@ -1,0 +1,11 @@
+<div *ngIf="user != {}">
+    {{user.name}}
+</div>
+<div *ngIf="messages != []">
+    <div *ngFor="let message of messages">
+        {{message.message}}
+        <span *ngIf="contact != message.creatorId">You</span>
+    </div>
+</div>
+<input type="text" [(ngModel)]="message">
+<button (click) = "createMessage(message)">send</button>
