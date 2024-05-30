@@ -80,11 +80,12 @@ const createChat = async (req, res) => {
         let users = participants;
         users.push(userFromToken.userId);
 
-        const chat = await Chat.find({ users });
+        const chat = await Chat.find({ users: { $all: [...users] } });
 
         if(chat.length != 0){
             return res.status(200).json(chat[0]._id);
         }
+        
         const newChat = new Chat({ users });
 
         await newChat.save();
