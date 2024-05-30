@@ -4,13 +4,13 @@
 :root{
     --primary: #a774d1;
     --secondary: #d8c1eb;
-    --tertiary: #9b48df;
+    --tertiary: #943cbd;
     --quaternary: #833cbd;
     --pink: #de3d6d;
 }
 
 body{
     font-family: "Roboto", sans-serif;
-    background: radial-gradient(circle, var(--secondary) 0%, var(--primary) 80%);
+    background: radial-gradient(circle, var(--quaternary) 0%, #943cbd);
     margin: 0;
 }
