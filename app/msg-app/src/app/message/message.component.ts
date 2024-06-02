@@ -43,7 +43,9 @@ export class MessageComponent {
 
   ngAfterViewInit() {
     //TODO   
-    this.scrollToBottom();        
+    setTimeout(() => {
+      this.scrollToBottom();      
+    }, 100);
   }
   scrollToBottom(){
     document.querySelector("#send-button")?.scrollIntoView();
