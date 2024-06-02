@@ -1,11 +1,9 @@
 const express = require("express");
 const User = require("../models/user.model");
 const router = express.Router();
-const { createUser, getUsers, getUser, getUserById, updateUser, getContacts, updateContacts, loginUser, } = require('../controllers/user.controller');
+const { createUser, getUser, getUserById, updateUser, getContacts, updateContacts, loginUser, } = require('../controllers/user.controller');
 
 router.post('/createUser', createUser);
-
-router.get('/getUsers', getUsers);
 
 router.get('/getUser/:apiKey', getUser);
 
