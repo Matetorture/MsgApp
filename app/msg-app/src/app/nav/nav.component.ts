@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { RouterLink, RouterLinkActive } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { Router, RouterLink, RouterLinkActive } from '@angular/router';;
+
+import { CookieService } from '../service/cookie/cookie.service';
 
 @Component({
   selector: 'app-nav',
@@ -9,4 +11,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './nav.component.css'
 })
 export class NavComponent {
+  constructor(private router: Router) {}
+
+  private cookieService = inject(CookieService);
+
+  logout(){
+    this.cookieService.set("userId", "");
+    this.router.navigate(['login']);
+  }
 }
