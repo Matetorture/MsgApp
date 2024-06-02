@@ -1,3 +1,8 @@
+<div id="add-contact">
+    <span>Add new contact: </span>
+    <input type="text" placeholder="name" [(ngModel)]="newContact">
+    <span (click)="addContact()" id="button"> Add</span>
+</div>
 <div *ngIf="contacts != []">
     <div id="contacts" *ngFor="let contact of contacts" (click) = "openContact(contact.id)">
         <span class="contact">

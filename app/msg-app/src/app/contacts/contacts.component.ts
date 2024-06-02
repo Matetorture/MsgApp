@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { UserService } from '../service/user/user.service';
@@ -8,7 +9,7 @@ import { CookieService } from '../service/cookie/cookie.service';
 @Component({
   selector: 'app-contacts',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './contacts.component.html',
   styleUrl: './contacts.component.css'
 })
@@ -22,10 +23,11 @@ export class ContactsComponent {
 
   contacts: Contact[] = [];
 
+  
   ngOnInit(): void {
     this.getContacts();
   }
-
+  
   getContacts(){
     this.userService.getContacts(this.userId).subscribe({
       next: (res: any) => {
@@ -35,10 +37,21 @@ export class ContactsComponent {
       error:(error) => console.log("Error fech data: "+error)
     });
   }
-
+  
   openContact(id: string){
     this.cookieService.set("contact", id);
     this.router.navigate(['message']);
+  }
+
+  newContact: string = "";
+  addContact(){
+    this.userService.updateContacts(this.userId, this.newContact).subscribe({
+      next: (res: any) => {
+        console.log(res);
+      },
+      error:(error) => console.log("Error fech data: "+error)
+    });
+    this.newContact = "";
   }
 }
 
