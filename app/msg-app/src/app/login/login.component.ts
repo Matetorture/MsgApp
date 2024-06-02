@@ -24,6 +24,8 @@ export class LoginComponent {
   login = "";
   password = "";
 
+  apiError: string = "";
+
   loginUser(){
     this.userService.loginUser({login: this.login, password: this.password}).subscribe({
       next: (res: any) => {
@@ -31,7 +33,10 @@ export class LoginComponent {
         this.cookieService.set("userId", this.userId);
         this.router.navigate(['contacts']);
       },
-      error:(error) => console.log("Error fech data: "+error)
+      error:(error) => {
+        this.apiError = error.error.message;
+        console.log("Error fech data: "+error);
+      }
     });
   }
 }

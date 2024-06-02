@@ -25,6 +25,8 @@ export class SinginComponent {
   email = "";
   password = "";
 
+  apiError: string = "";
+
   createUser(){
     this.userService.createUser({login: this.login, email: this.email, password: this.password}).subscribe({
       next: (res: any) => {
@@ -32,7 +34,10 @@ export class SinginComponent {
         this.cookieService.set("userId", this.userId);
         this.router.navigate(['contacts']);
       },
-      error:(error) => console.log("Error fech data: "+error)
+      error:(error) => {
+        this.apiError = error.error.message;
+        console.log("Error fech data: "+error);
+      }
     });
   }
 

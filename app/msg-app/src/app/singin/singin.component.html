@@ -19,5 +19,7 @@
         <div *ngIf="passwordInput.errors?.['maxlength']">Password cannot exceed 20 characters.</div>
     </div>
     <button type="submit" [disabled]="loginForm.invalid">Sing in</button>
+    <br>
+    <div class="error">{{apiError}}</div>
     <div id="accout-info" (click)="this.router.navigate(['login'])">You already have an account, <u>login</u>.</div>
 </form>
