@@ -1,6 +1,16 @@
-<div id="user">
+<form id="user"  #loginForm="ngForm" (ngSubmit)="loginUser()">
     <span class="info">Login</span>
-    <input type="text" [(ngModel)]="login" name="login" placeholder="login">
-    <input type="password" [(ngModel)]="password" name="password" placeholder="password">
-    <button (click)="this.loginUser()">login</button>
-</div>
+    <input type="text" [(ngModel)]="login" name="login" placeholder="login" #loginInput="ngModel" required minlength="2" maxlength="20">
+    <div *ngIf="loginInput.invalid && (loginInput.dirty || loginInput.touched)" class="error">
+        <div *ngIf="loginInput.errors?.['required']">Login is required.</div>
+        <div *ngIf="loginInput.errors?.['minlength']">Login must be at least 2 characters long.</div>
+        <div *ngIf="loginInput.errors?.['maxlength']">Login cannot exceed 20 characters.</div>
+    </div>
+    <input type="password" [(ngModel)]="password" name="password" placeholder="password" #passwordInput="ngModel" required minlength="2" maxlength="20">
+    <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error">
+        <div *ngIf="passwordInput.errors?.['required']">Password is required.</div>
+        <div *ngIf="passwordInput.errors?.['minlength']">Password must be at least 2 characters long.</div>
+        <div *ngIf="passwordInput.errors?.['maxlength']">Password cannot exceed 20 characters.</div>
+    </div>
+    <button type="submit" [disabled]="loginForm.invalid">login</button>
+</form>

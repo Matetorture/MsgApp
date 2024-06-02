@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { UserService } from '../service/user/user.service';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -8,7 +9,7 @@ import { CookieService } from '../service/cookie/cookie.service';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
