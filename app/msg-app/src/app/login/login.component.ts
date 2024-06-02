@@ -19,7 +19,7 @@ export class LoginComponent {
   private userService = inject(UserService);
   private cookieService = inject(CookieService);
 
-  userId: string = "";
+  userId: any = this.cookieService.get("userId") === "" ? '' : this.router.navigate(['contacts']);
 
   login = "";
   password = "";
