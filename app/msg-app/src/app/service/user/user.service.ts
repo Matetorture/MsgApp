@@ -12,8 +12,8 @@ export class UserService {
 
   constructor() { }
 
-  createUser(){
-    // return this.http.post(`${apiUrl}/createUser`);
+  createUser(user: object){
+    return this.http.post(`${apiUrl}/createUser`, user);
   }
   getUser(userId: string){
     return this.http.get(`${apiUrl}/getUser/${userId}`);

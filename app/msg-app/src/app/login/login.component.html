@@ -12,5 +12,6 @@
         <div *ngIf="passwordInput.errors?.['minlength']">Password must be at least 2 characters long.</div>
         <div *ngIf="passwordInput.errors?.['maxlength']">Password cannot exceed 20 characters.</div>
     </div>
-    <button type="submit" [disabled]="loginForm.invalid">login</button>
+    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    <div id="accout-info" (click)="this.router.navigate(['singin'])">You don't have an account, <u>sign in</u> now.</div>
 </form>

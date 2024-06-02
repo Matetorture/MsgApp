@@ -14,7 +14,7 @@ import { CookieService } from '../service/cookie/cookie.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  constructor(private router: Router) {}
+  constructor(public router: Router) {}
 
   private userService = inject(UserService);
   private cookieService = inject(CookieService);

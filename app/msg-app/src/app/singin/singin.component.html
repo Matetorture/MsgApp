@@ -1,1 +1,23 @@
-<p>singin works!</p>
+<form id="user"  #loginForm="ngForm" (ngSubmit)="createUser()">
+    <span class="info">Sing In</span>
+    <input type="text" [(ngModel)]="login" name="login" placeholder="login" #loginInput="ngModel" required minlength="2" maxlength="20">
+    <div *ngIf="loginInput.invalid && (loginInput.dirty || loginInput.touched)" class="error">
+        <div *ngIf="loginInput.errors?.['required']">Login is required.</div>
+        <div *ngIf="loginInput.errors?.['minlength']">Login must be at least 2 characters long.</div>
+        <div *ngIf="loginInput.errors?.['maxlength']">Login cannot exceed 20 characters.</div>
+    </div>
+    <input type="email" [(ngModel)]="email" name="email" placeholder="email" #emailInput="ngModel" required minlength="2" maxlength="20">
+    <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="error">
+        <div *ngIf="emailInput.errors?.['required']">Email is required.</div>
+        <div *ngIf="emailInput.errors?.['minlength']">Email must be at least 2 characters long.</div>
+        <div *ngIf="emailInput.errors?.['maxlength']">Email cannot exceed 20 characters.</div>
+    </div>
+    <input type="password" [(ngModel)]="password" name="password" placeholder="password" #passwordInput="ngModel" required minlength="2" maxlength="20">
+    <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error">
+        <div *ngIf="passwordInput.errors?.['required']">Password is required.</div>
+        <div *ngIf="passwordInput.errors?.['minlength']">Password must be at least 2 characters long.</div>
+        <div *ngIf="passwordInput.errors?.['maxlength']">Password cannot exceed 20 characters.</div>
+    </div>
+    <button type="submit" [disabled]="loginForm.invalid">Sing in</button>
+    <div id="accout-info" (click)="this.router.navigate(['login'])">You already have an account, <u>login</u>.</div>
+</form>

@@ -47,3 +47,17 @@ button:disabled{
     color: red;
     margin-bottom: 10px;
 }
+
+#accout-info{
+    font-size: 20px;
+    margin-top: 40px;
+    color: white;
+    text-align: center;
+}
+#accout-info u{
+    color: var(--color2);
+    cursor: pointer;
+}
+#accout:hover{
+    color: var(--secondary);
+}
