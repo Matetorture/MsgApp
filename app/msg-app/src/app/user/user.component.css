@@ -7,12 +7,12 @@
     font-size: 30px;
     text-align: center;
     width: 100%;
-    margin-bottom:  60px;
     border: none;
     border-bottom: 6px solid var(--primary);
     color: var(--color);
     background-color: transparent;
     outline: none;
+    margin-bottom: 20px;
 }
 .info{
     color: var(--color);
@@ -20,6 +20,7 @@
     display: block;
     width: 100%;
     text-align: center;
+    margin-top: 40px;
 }
 button{
     width: 200px;
@@ -29,6 +30,14 @@ button{
     color: var(--color);
     border-radius: 20px;
     display: block;
-    margin: 50px auto;
+    margin: auto;
     cursor: pointer;
+    margin-top: 40px;
+}
+
+.error{
+    text-align: center;
+    font-size: 20px;
+    color: red;
+    margin-bottom: 10px;
 }

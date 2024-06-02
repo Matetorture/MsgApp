@@ -1,13 +1,33 @@
-<div *ngIf="user" id="user">
+<form id="user"  #userForm="ngForm" (ngSubmit)="updateUser()">
     <span class="info"><b>Login</b></span>
-    <input type="text" [(ngModel)]="user.login" name="login" id="login" placeholder="login"><br>
+    <input type="text" [(ngModel)]="user.login" name="login" id="login" placeholder="login" #loginInput="ngModel" required minlength="2" maxlength="20"><br>
+    <div *ngIf="loginInput.invalid && (loginInput.dirty || loginInput.touched)" class="error">
+        <div *ngIf="loginInput.errors?.['required']">Login is required.</div>
+        <div *ngIf="loginInput.errors?.['minlength']">Login must be at least 2 characters long.</div>
+        <div *ngIf="loginInput.errors?.['maxlength']">Login cannot exceed 20 characters.</div>
+    </div>
     <span class="info"><b>Password</b></span>
-    <input type="password" [(ngModel)]="user.password" name="password" id="password" placeholder="password"><br>
+    <input type="password" [(ngModel)]="user.password" name="password" id="password" placeholder="password" #passwordInput="ngModel" required minlength="2" maxlength="20"><br>
+    <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error">
+        <div *ngIf="passwordInput.errors?.['required']">Password is required.</div>
+        <div *ngIf="passwordInput.errors?.['minlength']">Password must be at least 2 characters long.</div>
+        <div *ngIf="passwordInput.errors?.['maxlength']">Password cannot exceed 20 characters.</div>
+    </div>
     <span class="info"><b>Email</b></span>
-    <input type="email" [(ngModel)]="user.email" name="email" id="email" placeholder="email"><br>
+    <input type="email" [(ngModel)]="user.email" name="email" id="email" placeholder="email" #emailInput="ngModel" required minlength="2" maxlength="20"><br>
+    <div *ngIf="emailInput.invalid && (emailInput.dirty || emailInput.touched)" class="error">
+        <div *ngIf="emailInput.errors?.['required']">Email is required.</div>
+        <div *ngIf="emailInput.errors?.['minlength']">Email must be at least 2 characters long.</div>
+        <div *ngIf="emailInput.errors?.['maxlength']">Email cannot exceed 20 characters.</div>
+    </div>
     <span class="info"><b>Name</b></span>
-    <input type="text" [(ngModel)]="user.name" name="name" id="name" placeholder="name"><br>
+    <input type="text" [(ngModel)]="user.name" name="name" id="name" placeholder="name" #nameInput="ngModel" required minlength="2" maxlength="20"><br>
+    <div *ngIf="nameInput.invalid && (nameInput.dirty || nameInput.touched)" class="error">
+        <div *ngIf="nameInput.errors?.['required']">Name is required.</div>
+        <div *ngIf="nameInput.errors?.['minlength']">Name must be at least 2 characters long.</div>
+        <div *ngIf="nameInput.errors?.['maxlength']">Name cannot exceed 20 characters.</div>
+    </div>
     <span class="info"><b>Account creation time</b></span>
     <span class="info">{{user.createdAt.substring(0, 10)}}</span>
-    <button (click)="updateUser()">Save</button>
-</div>
+    <button type="submit">Save</button>
+</form>
