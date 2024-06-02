@@ -9,6 +9,7 @@
     --quinary: #cccccc;
     --color: black;
     --color2: #00b4b4;
+    --color3: #ebebeb;
 }
 .dark{
     --primary: #3a3b3c;
@@ -18,6 +19,7 @@
     --quinary: #333333;
     --color: white;
     --color2: #00b4b4;
+    --color3: #141414;
 }
 
 
