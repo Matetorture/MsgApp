@@ -6,6 +6,7 @@ import { MessageComponent } from './message/message.component';
 import { SinginComponent } from './singin/singin.component';
 
 export const routes: Routes = [
+    { path: '', component: ContactsComponent },
     { path: 'user', component: UserComponent },
     { path: 'login', component: LoginComponent },
     { path: 'singin', component: SinginComponent },
