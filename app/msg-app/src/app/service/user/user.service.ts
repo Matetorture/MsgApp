@@ -35,4 +35,8 @@ export class UserService {
   loginUser(data: {login: string, password: string}){
     return this.http.post(`${apiUrl}/loginUser`, data);
   }
+
+  changeToOnline(userId: string){
+    return this.http.put(`${apiUrl}/changeToOnline/${userId}`, "");
+  }
 }

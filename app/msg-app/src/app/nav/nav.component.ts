@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
 
+import { UserService } from '../service/user/user.service';
 import { CookieService } from '../service/cookie/cookie.service';
 
 @Component({
@@ -14,10 +15,14 @@ import { CookieService } from '../service/cookie/cookie.service';
 export class NavComponent {
   constructor(private router: Router) {}
 
+  private userService = inject(UserService);
   private cookieService = inject(CookieService);
+
+  userId: any = this.cookieService.get("userId");
 
   logout(){
     this.cookieService.set("userId", "");
+    this.userId = this.cookieService.get("userId");
     this.router.navigate(['login']);
   }
 
@@ -28,6 +33,14 @@ export class NavComponent {
     if(this.cookieService.get("theme") == "dark"){
       this.changeThemeMode();
     }
+
+    setInterval(() => {
+      if(this.userId != '' && document.visibilityState === 'visible'){
+        this.changeToOnline();
+      }else{
+        this.userId = this.cookieService.get("userId");
+      }
+    }, 5000);
   }
 
   isDarkTheme: boolean = false;
@@ -40,5 +53,13 @@ export class NavComponent {
     }else{
       this.cookieService.set("theme", "light");
     }
+  }
+
+  changeToOnline(){
+    this.userService.changeToOnline(this.userId).subscribe({
+      next: (res: any) => {
+      },
+      error:(error) => console.log("Error fech data: "+error)
+    });
   }
 }
