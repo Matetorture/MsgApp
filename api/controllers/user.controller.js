@@ -182,6 +182,25 @@ const loginUser = async (req, res) => {
     }
 };
 
+//Status -> online
+const changeToOnline = async (req, res) => {
+    try{
+        const {apiKey} = req.params;
+
+        const userFromToken = jwt.verify(apiKey, jwtSecret);
+
+        const user = await User.findByIdAndUpdate(userFromToken.userId, {status: "online"});
+        
+        if (!user){
+            return res.status(404).json({message: "User not found"});
+        }
+
+        res.status(200).json("online");
+
+    } catch(err){
+        res.status(500).json({message: err.message});
+    }
+};
 
 
 module.exports = { 
@@ -191,5 +210,6 @@ module.exports = {
     updateUser, 
     getContacts, 
     updateContacts,
-    loginUser
+    loginUser,
+    changeToOnline
 };
