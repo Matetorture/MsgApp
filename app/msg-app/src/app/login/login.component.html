@@ -1,4 +1,6 @@
-<h1>Login</h1>
-<input type="text" [(ngModel)]="login" name="login" id="login">
-<input type="password" [(ngModel)]="password" name="password" id="login">
-<button (click)="this.loginUser()">login</button>
+<div id="user">
+    <span class="info">Login</span>
+    <input type="text" [(ngModel)]="login" name="login" placeholder="login">
+    <input type="password" [(ngModel)]="password" name="password" placeholder="password">
+    <button (click)="this.loginUser()">login</button>
+</div>

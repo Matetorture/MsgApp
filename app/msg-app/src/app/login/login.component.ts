@@ -1,6 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { UserService } from '../service/user/user.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
 import { CookieService } from '../service/cookie/cookie.service';
 
 @Component({
@@ -11,6 +13,8 @@ import { CookieService } from '../service/cookie/cookie.service';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
+  constructor(private router: Router) {}
+
   private userService = inject(UserService);
   private cookieService = inject(CookieService);
 
@@ -24,8 +28,7 @@ export class LoginComponent {
       next: (res: any) => {
         this.userId = res.token;
         this.cookieService.set("userId", this.userId);
-        // document.cookie = `userId=${this.userId}; expires=${new Date(Date.now() + 1000 * 60 * 60 * 24).toUTCString()}; path=/`;
-        console.log(this.userId);
+        this.router.navigate(['contacts']);
       },
       error:(error) => console.log("Error fech data: "+error)
     });
