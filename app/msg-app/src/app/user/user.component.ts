@@ -37,7 +37,6 @@ export class UserComponent {
     this.userService.getUser(this.userId).subscribe({
       next: (res: any) => {
         this.user = res;
-        console.log(this.user);
       },
       error:(error) => console.log("Error fech data: "+error)
     });
@@ -50,7 +49,6 @@ export class UserComponent {
 
     this.userService.updateUser(this.userId, this.user).subscribe({
       next: (res: any) => {
-        console.log(res);
       },
       error:(error) => console.log("Error fech data: "+error)
     });

@@ -31,7 +31,6 @@ export class ContactsComponent {
   getContacts(){
     this.userService.getContacts(this.userId).subscribe({
       next: (res: any) => {
-        console.log(res)
         this.contacts = res;
       },
       error:(error) => console.log("Error fech data: "+error)
@@ -47,7 +46,6 @@ export class ContactsComponent {
   addContact(){
     this.userService.updateContacts(this.userId, this.newContact).subscribe({
       next: (res: any) => {
-        console.log(res);
       },
       error:(error) => console.log("Error fech data: "+error)
     });
