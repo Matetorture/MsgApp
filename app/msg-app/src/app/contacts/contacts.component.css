@@ -1,4 +1,8 @@
-#contacts{
+#contacts-list{
+    max-width: 900px;
+    margin: auto;
+}
+.contacts{
     margin: 10px;
     color: var(--color);
 }
@@ -15,7 +19,7 @@
 .status{    
     position: absolute;
     font-size: 20px;
-    right: 20px;
+    right: 40px;
     opacity: .6;
     top: 50%;
     transform: translateY(-50%);
