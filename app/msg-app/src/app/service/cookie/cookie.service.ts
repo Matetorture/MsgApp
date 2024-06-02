@@ -8,7 +8,7 @@ export class CookieService {
   constructor() { }
 
   set(name: string, value: string){
-    document.cookie = `${name}=${value}; expires=${new Date(Date.now() + 1000 * 60 * 60 * 24).toUTCString()}; path=/`;
+    document.cookie = `${name}=${value}; expires=${new Date(Date.now() + 1000 * 60 * 60 * 24).toUTCString()}; path=/; SameSite=Strict`;
   }
   get(name: string): string{
     return document.cookie.split('; ')
