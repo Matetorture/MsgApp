@@ -1,4 +1,4 @@
-<form id="user"  #userForm="ngForm" (ngSubmit)="updateUser()">
+<form *ngIf="user" id="user"  #userForm="ngForm" (ngSubmit)="updateUser()">
     <span class="info"><b>Login</b></span>
     <input type="text" [(ngModel)]="user.login" name="login" id="login" placeholder="login" #loginInput="ngModel" required minlength="2" maxlength="20"><br>
     <div *ngIf="loginInput.invalid && (loginInput.dirty || loginInput.touched)" class="error">
