@@ -20,6 +20,7 @@
     margin: 10px 50px;
 }
 .message{
+    color: var(--quaternary);
     display: block;
     margin-top: 10px;
     width: fit-content;

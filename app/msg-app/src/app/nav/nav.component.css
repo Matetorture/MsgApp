@@ -1,4 +1,5 @@
 #nav{
+    position: relative;
     position: sticky;
     z-index: 1;
     top: 0;
@@ -22,4 +23,16 @@
 .active{
     color: var(--color);
     font-weight: bold;
+}
+#theme{
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    position: absolute;
+    right: 90px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
 }
