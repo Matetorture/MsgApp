@@ -2,7 +2,7 @@
     font-size: 30px;
     text-align: center;
     padding: 15px 0 25px 0;
-    color: white;
+    color: var(--color);
     position: relative;
     position: sticky;
     top: 110px;
@@ -30,12 +30,12 @@
 }
 .your{
     background-color: var(--color2);
-    color: white;
+    color: var(--color);
 }
 .info{
     position: absolute;
     right: -10px;
-    color: white;
+    color: var(--color);
     opacity: .4;
     transform: translateX(100%);
 }
@@ -51,12 +51,12 @@
     font-size: 30px;
     background-color: transparent;
     outline: none;
-    color: white;
+    color: var(--color);
     border: none;
     border-bottom: 6px solid var(--primary);
 }
 #send-button{
-    color: white;
+    color: var(--color);
     font-size: 100px;
     background-color: transparent;
     border: none;

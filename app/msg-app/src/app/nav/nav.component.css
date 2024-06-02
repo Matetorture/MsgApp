@@ -16,10 +16,10 @@
     font-size: 36px;
 }
 .link:hover{
-    color: white;
+    color: var(--color);
     font-weight: bold;
 }
 .active{
-    color: white;
+    color: var(--color);
     font-weight: bold;
 }
