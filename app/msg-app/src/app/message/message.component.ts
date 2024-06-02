@@ -48,7 +48,7 @@ export class MessageComponent {
     }, 100);
   }
   scrollToBottom(){
-    document.querySelector("#send-button")?.scrollIntoView();
+    document.querySelector("#bottom")?.scrollIntoView();
   }
 
   createChat(){

@@ -40,6 +40,11 @@
     transform: translateX(100%);
 }
 
+#message-send-box{
+    position: sticky;
+    bottom: 0;
+    background-color: var(--quaternary);
+}
 #message-input{
     margin: 0 5% 20px 5%;
     width: 80%;

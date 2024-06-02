@@ -9,7 +9,10 @@
         <span *ngIf="contact != message.creatorId" class="info">You</span>
     </div>
 </div>
-<input type="text" [(ngModel)]="message" placeholder="message" id="message-input">
-<button id="send-button" (click)="createMessage(message)">
-    <span class="material-symbols-outlined">send</span>
-</button>
+<div id="message-send-box">
+    <input type="text" [(ngModel)]="message" placeholder="message" id="message-input">
+    <button id="send-button" (click)="createMessage(message)">
+        <span class="material-symbols-outlined">send</span>
+    </button>
+</div>
+<div id="bottom"></div>
